@@ -191,10 +191,3 @@ jobs:
           
           EOF
 
-      - name: Upload packages to testpypi
-        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
-        run: python -m twine upload --skip-existing --repository testpypi dist/* --verbose
-
-      - name: Upload packages to pypi
-        if: startsWith(github.ref, 'refs/tags/')
-        run: python -m twine upload --skip-existing dist/* --verbose
