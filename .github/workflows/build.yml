@@ -156,7 +156,8 @@ jobs:
     needs: test-wheels
     permissions:
       id-token: write
-      contents: read
+      contents: write
+      packages: write
 
     steps:
       - name: Setup Python ${{ matrix.python-version }}
@@ -204,6 +205,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dist
+          asset_path: dist/ubuntu-latest.zip
           asset_name: ubuntu-latest.zip
           asset_content_type: application/zip
