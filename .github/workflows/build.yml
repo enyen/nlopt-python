@@ -158,6 +158,7 @@ jobs:
       id-token: write
       contents: write
       packages: write
+      deployments: write
 
     steps:
       - name: Setup Python ${{ matrix.python-version }}
